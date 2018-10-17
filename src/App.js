@@ -16,6 +16,7 @@ class App extends Component {
       movies: {},
       images: {},
       genres: {},
+      ratingFilter: 3,
       loading: false
     }
   }
@@ -35,6 +36,7 @@ class App extends Component {
           data.data.genres.forEach(genre => {
             this.state.genres[genre.name] = {
               id: genre.id,
+              name: genre.name,
               activeFilter: false
             }
           })
@@ -66,13 +68,13 @@ class App extends Component {
     }
   }
 
-  handleRatingChange() {
-
+  handleRatingChange(e, value) {
+    this.setState({ratingFilter: value})
   }
 
   render() {
     return (
-      this.state.loading ? <CircularProgress style={{ color: purple[500] }} thickness={7} /> : (
+      this.state.loading ? <CircularProgress id='spinner' style={{ color: purple[500], size: 40 }} thickness={7} /> : (
       <div className="App container">
         <div className='row'> 
           <div className='col-sm-12'> 
@@ -97,16 +99,17 @@ class App extends Component {
             </div>
             <div id='ratingContainer'>
               <div className='filterHeader'>Filter by rating</div>
+                <div id='ratingValue'>{this.state.ratingFilter}</div>
                 <Slider
-                  value={3}
+                  value={this.state.ratingFilter}
                   min={0}
                   max={10}
                   step={0.5}
-                  onChange={this.handleRatingChange}
+                  onChange={this.handleRatingChange.bind(this)}
                 />
             </div>
             <div id='moviesContainer'>
-              <Movie genres={this.state.genres} data={this.state.movies}></Movie>
+              <Movie ratingFilter={this.state.ratingFilter} genres={this.state.genres} movies={this.state.movies}></Movie>
             </div>
           </div>
         </div>

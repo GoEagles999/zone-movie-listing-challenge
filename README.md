@@ -1,3 +1,6 @@
+## How to run
+Type 'npm start' in the console.
+
 Brief
 Using the TMDb API display a list of now showing movies allowing the user to filter by genre and rating.
 

@@ -1,6 +1,11 @@
 .App {
   text-align: center;
 }
+
+#spinner {
+  margin: 0 auto;
+}
+
 #moviesContainer {
   padding:40px;
 }
@@ -13,6 +18,11 @@
   padding:20px;
 }
 
+#ratingValue {
+  font-size:1.3rem;
+  margin-bottom:15px;
+}
+
 .filterHeader {
   text-align:center;
   font-size:1.3rem;
@@ -22,13 +32,13 @@
 
 .App-logo {
   animation: App-logo-spin infinite 20s linear;
-  height: 40px;
-  margin-bottom:15px;
-  margin-top:15px;
+  height: 120px;
+  margin-bottom:20px;
+  margin-top:20px;
 }
 
 .App-header {
-  height: 150px;
+  height: 250px;
   flex-direction: column;
   align-items: center;
   justify-content: center;
